@@ -1,4 +1,5 @@
 # genetic_algorithm__feature_selection
+NOT COMPLETED YET!
 Genetic Algorithm(GA) is applied to select the optimal subset of feature set to obtain the best classification score in ML project.
 
 I used "Airline Passenger Satisfaction" dataset  which is available in the following link:
