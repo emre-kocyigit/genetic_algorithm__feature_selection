@@ -16,3 +16,8 @@ Default GA parameters are defined at the beginning of the GeneticAlgorithm.py. Y
 Output:
 - A list which has the best chromosome of each generation --> to see the evolutionary progress
 - Best chromosome which represents the optimal features as a part of feature selection
+
+NOTE:
+- You can change the data, and run the GA to find the optimal feature subset. Don't forget to change the chromosome length parameter according to your features.
+- Also, I used F1-Score as a fitness value. You can customize MachineLearning part according to your problem. Try other ML classifiers. etc.
+
