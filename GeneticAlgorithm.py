@@ -32,9 +32,6 @@ def create_initial_population(pop_size=population_size):
     return [sol if (key := sol.id) not in ids and not ids.add(key) else Chromosome() for sol in initial_population]
 
 
-init_pop = create_initial_population()
-
-
 # SELECTION
 def tournament_select(population, t_size=tournament_size):
     # randomly select chromosomes as much as tournament size
@@ -104,14 +101,6 @@ def create_generation(previous_generation, m_prob=mutation_probability):
     return next_generation
 
 
-new_gen = create_generation(init_pop)
-print(len(init_pop))
-print(new_gen)
-print(len(new_gen))
-print(new_gen[0].chromosome)
-print(new_gen[1].fitness_value)
-
-
 # COMPLETE GENETIC ALGORITHM FOR FEATURE SELECTION
 def find_optimal_feature_set(termination_criterion=latest_generation_value):
     generation = create_initial_population()  # initial population
@@ -123,19 +112,19 @@ def find_optimal_feature_set(termination_criterion=latest_generation_value):
     return evolutionary_progress  # return the best chromosome of the last generation - best of all
 
 
-print("_" * 100)
+# best feature selection results of each generation
 best_chromosomes = find_optimal_feature_set()
-best_chromosome = best_chromosomes[-1]
+best_chromosome = best_chromosomes[-1]  # best of best
 
+# a list to plot the evolutionary progress of the GA
 best_chromosomes_fitness_values = [chromosome.fitness_value for chromosome in best_chromosomes]
 
-# Plotting the line
+# plot
 plt.plot(best_chromosomes_fitness_values)
-
-# Adding labels and title
+# labels and title
 plt.xlabel('Generations')
 plt.ylabel('Fitness Values')
 plt.title('Evolutionary Progress of the Chromosomes')
 
-# Show the plot
+# show the plot
 plt.show()
